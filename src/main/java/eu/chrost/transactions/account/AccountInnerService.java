@@ -14,14 +14,14 @@ class AccountInnerService {
     public void saveRequired() {
         accountRepository.save(Account.builder().owner("Inner REQUIRED").balance(10.0).build());
         // Uncomment to test rollback
-        throw new RuntimeException("Forcing rollback in REQUIRED");
+        //throw new RuntimeException("Forcing rollback in REQUIRED");
     }
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void saveRequiresNew() {
         accountRepository.save(Account.builder().owner("Inner REQUIRES_NEW").balance(20.0).build());
         // Uncomment to test rollback
-        throw new RuntimeException("Forcing rollback in REQUIRES_NEW");
+        //throw new RuntimeException("Forcing rollback in REQUIRES_NEW");
     }
 
     @Transactional(propagation = Propagation.NESTED)
